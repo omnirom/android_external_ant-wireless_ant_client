@@ -750,12 +750,12 @@ public class AntService extends Service
                 filter.addAction(Intent.ACTION_USER_SWITCHED);
             }
         }
-        registerReceiver(mReceiver, filter);
+        registerReceiver(mReceiver, filter, Context.RECEIVER_EXPORTED);
 
         if (mRequiresBluetoothOn) {
             IntentFilter stateChangedFilter = new IntentFilter();
             stateChangedFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(mStateChangedReceiver, stateChangedFilter);
+            registerReceiver(mStateChangedReceiver, stateChangedFilter, Context.RECEIVER_EXPORTED);
         }
     }
 
